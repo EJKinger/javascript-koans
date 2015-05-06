@@ -65,15 +65,35 @@ describe("About Applying What We Have Learnt", function() {
         sum += i;
       }
     }
-    
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
+    var multThree = function(num){
+      if (num % 3 === 0) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
+    var multFive = function(num){
+      if (num % 5 === 0) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    };
 
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
+    var sum = _.range(0, 1000).reduce(function(a, b) {
+      if (multThree(b) || multFive(b)) {
+        return a + b;
+      }
+      else return a;
+    });    /* try chaining range() and reduce() */
 
-    expect(233168).toBe(FILL_ME_IN);
+    expect(233168).toBe(sum);
   });
 
   /*********************************************************************************/
