@@ -86,12 +86,14 @@ describe("About Applying What We Have Learnt", function() {
       }
     };
 
-    var sum = _.range(0, 1000).reduce(function(a, b) {
-      if (multThree(b) || multFive(b)) {
-        return a + b;
-      }
-      else return a;
-    });    /* try chaining range() and reduce() */
+    var sum = _.chain(_.range(0, 1000))
+      .reduce(function(a, b){
+        if (multThree(b) || multFive(b)) {
+          return a + b;
+        }
+        else return a;
+      })
+      .value();
 
     expect(233168).toBe(sum);
   });
@@ -129,7 +131,7 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
+
   it("should find the largest prime factor of a composite number", function () {
   
   });
@@ -150,5 +152,4 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
 });
