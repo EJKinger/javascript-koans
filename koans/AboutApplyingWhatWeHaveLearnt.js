@@ -118,9 +118,13 @@ describe("About Applying What We Have Learnt", function() {
         return obj.ingredients.concat();
       })
       .flatten()
+      .reduce(function(count, ingredient) {
+        count[ingredient] = (count[ingredient] || 0) + 1;
+        return count;
+      }, ingredientCount)
       .value();
     console.log(result);
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
